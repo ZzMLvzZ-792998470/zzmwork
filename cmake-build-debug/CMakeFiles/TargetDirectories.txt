@@ -1,0 +1,4 @@
+F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/CopyRuntimeFiles.dir
+F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/ffmpeg_work.dir
+F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/rebuild_cache.dir

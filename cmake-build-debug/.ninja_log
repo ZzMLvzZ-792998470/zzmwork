@@ -1,0 +1,27 @@
+# ninja log v5
+41	432	7172345682865724	build.ninja	c5208a49b961a19d
+2	40	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+5	823	7173107820139016	CMakeFiles/ffmpeg_work.dir/encoder.cpp.obj	ea367b1111a6d8fd
+20	568	7170539327665380	CMakeFiles/ffmpeg_work.dir/writer.cpp.obj	d908c318d995815e
+13	1435	7173113465810725	CMakeFiles/ffmpeg_work.dir/decoder.cpp.obj	1af160f4b0b30521
+5	2028	7173113471748042	CMakeFiles/ffmpeg_work.dir/main.cpp.obj	b6062f650dd0afd9
+17	609	7170775775257517	CMakeFiles/ffmpeg_work.dir/init_o.cpp.obj	ca7c3904f50d7be
+2029	2617	7173113477583401	ffmpeg_work.exe	199979094f1efa7a
+5	1010	7172517093121068	CMakeFiles/ffmpeg_work.dir/utils.cpp.obj	4fb55d92a75ee076
+0	576	0	CMakeFiles/CopyRuntimeFiles	f2d2116b2608a44b
+11	491	7170760073827595	CMakeFiles/ffmpeg_work.dir/init_i.cpp.obj	44f79201b9aeffa9
+0	576	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/CopyRuntimeFiles	f2d2116b2608a44b
+37	616	7170720736725032	CMakeFiles/ffmpeg_work.dir/frame_create.cpp.obj	fd44940b59526982
+4	438	7172539269774847	CMakeFiles/ffmpeg_work.dir/initer.cpp.obj	1ddf59631b732f83
+4	2190	7173089499946854	CMakeFiles/ffmpeg_work.dir/transcoder.cpp.obj	2cddecf052df2065
+3	37	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+4	1860	7173116834656470	CMakeFiles/ffmpeg_work.dir/main.cpp.obj	b6062f650dd0afd9
+11	2195	7173116838006029	CMakeFiles/ffmpeg_work.dir/transcoder.cpp.obj	2cddecf052df2065
+2195	2610	7173116842120131	ffmpeg_work.exe	199979094f1efa7a
+2	34	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+3	37	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+3	37	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+5	1172	7173119891810264	CMakeFiles/ffmpeg_work.dir/decoder.cpp.obj	1af160f4b0b30521
+1173	1888	7173119898837048	ffmpeg_work.exe	199979094f1efa7a
+3	39	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+3	44	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
