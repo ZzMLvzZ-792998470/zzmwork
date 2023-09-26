@@ -184,6 +184,7 @@ int Transcoder::test_encode_rtmp4(int &work) {
     double count_audio = 0.0;
     double count_video = 0.0;
 
+    int64_t last_time = -1;
     AVFrame *last_frame = FrameCreater::create_video_frame();
     AVFrame *silence_frame = FrameCreater::create_audio_frame();
     bool all_finish;
@@ -209,7 +210,8 @@ int Transcoder::test_encode_rtmp4(int &work) {
             }
         }
         if (!decoders[0]->get_video_queue().empty()) {
-            encoders[0]->encode(Utils::change_frame_size(1920, 1080, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video);
+            //encoders[0]->encode(Utils::change_frame_size(1920, 1080, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video);
+            encoders[0]->encode_new(Utils::change_frame_size(1920, 1080, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video, last_time);
             av_frame_free(&last_frame);
             last_frame = av_frame_clone(decoders[0]->get_video_queue().front());
             {
@@ -222,7 +224,8 @@ int Transcoder::test_encode_rtmp4(int &work) {
             }
 
         } else {
-            encoders[0]->encode(Utils::change_frame_size(width, height, av_frame_clone(last_frame)), 0, count_video);
+            //encoders[0]->encode(Utils::change_frame_size(width, height, av_frame_clone(last_frame)), 0, count_video);
+            encoders[0]->encode_new(Utils::change_frame_size(width, height, av_frame_clone(last_frame)), 0, count_video, last_time);
         }
 
         if (!decoders[0]->get_audio_queue().empty()) {

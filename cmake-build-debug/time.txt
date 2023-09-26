@@ -1,642 +1,273 @@
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 8ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 8ms.
-free frame time time: 8ms.
-receive packet time time: 8ms.
-Whole func use time: 8ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 9ms.
-receive packet time time: 9ms.
-Whole func use time: 9ms.
-per frame time: 10ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 7ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 8ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 4ms.
-free frame time time: 5ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 8ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 7ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 10ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 4ms.
-free frame time time: 4ms.
-receive packet time time: 4ms.
-Whole func use time: 4ms.
-per frame time: 7ms.
-init encode and packet time: 1ms.
-set_pts time: 1ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
 Whole func use time: 5ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
-Whole func use time: 5ms.
-per frame time: 6ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 8ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
-Whole func use time: 5ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
-Whole func use time: 5ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 26ms.
-free frame time time: 90ms.
-receive packet time time: 90ms.
-Whole func use time: 90ms.
-per frame time: 92ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 8ms.
-free frame time time: 10ms.
-receive packet time time: 10ms.
-Whole func use time: 10ms.
-per frame time: 15ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 12ms.
-free frame time time: 64ms.
-receive packet time time: 65ms.
-Whole func use time: 65ms.
-per frame time: 67ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 10ms.
-receive packet time time: 11ms.
-Whole func use time: 11ms.
-per frame time: 14ms.
-init encode and packet time: 0ms.
-set_pts time: 1ms.
-send frame time time: 10ms.
-free frame time time: 11ms.
-receive packet time time: 31ms.
-Whole func use time: 31ms.
-per frame time: 32ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 7ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 11ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 8ms.
-free frame time time: 8ms.
-receive packet time time: 8ms.
-Whole func use time: 9ms.
-per frame time: 11ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 8ms.
-free frame time time: 8ms.
-receive packet time time: 8ms.
-Whole func use time: 8ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 5ms.
-free frame time time: 6ms.
-receive packet time time: 6ms.
-Whole func use time: 6ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 7ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 7ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 8ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 4ms.
-free frame time time: 5ms.
-receive packet time time: 5ms.
-Whole func use time: 5ms.
-per frame time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 391ms.
-free frame time time: 391ms.
-receive packet time time: 391ms.
-Whole func use time: 391ms.
-per frame time: 392ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 6ms.
-free frame time time: 7ms.
-receive packet time time: 7ms.
-Whole func use time: 7ms.
-per frame time: 9ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 20ms.
-free frame time time: 30ms.
-receive packet time time: 33ms.
-Whole func use time: 33ms.
-per frame time: 35ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 11ms.
-free frame time time: 11ms.
-receive packet time time: 11ms.
-Whole func use time: 11ms.
-per frame time: 13ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 21ms.
-free frame time time: 41ms.
-receive packet time time: 41ms.
-Whole func use time: 41ms.
-per frame time: 43ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 11ms.
-receive packet time time: 11ms.
-Whole func use time: 11ms.
-per frame time: 13ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 28ms.
-free frame time time: 43ms.
-receive packet time time: 85ms.
-Whole func use time: 120ms.
-per frame time: 137ms.
-init encode and packet time: 0ms.
-set_pts time: 5ms.
-send frame time time: 19ms.
-free frame time time: 22ms.
-receive packet time time: 22ms.
-Whole func use time: 23ms.
-per frame time: 27ms.
-init encode and packet time: 0ms.
-set_pts time: 2ms.
-send frame time time: 18ms.
-free frame time time: 18ms.
-receive packet time time: 18ms.
-Whole func use time: 19ms.
-per frame time: 21ms.
-init encode and packet time: 0ms.
-set_pts time: 4ms.
-send frame time time: 27ms.
-free frame time time: 27ms.
-receive packet time time: 27ms.
-Whole func use time: 27ms.
-per frame time: 30ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 19ms.
-free frame time time: 20ms.
-receive packet time time: 20ms.
-Whole func use time: 20ms.
-per frame time: 25ms.
-init encode and packet time: 0ms.
-set_pts time: 4ms.
-send frame time time: 26ms.
-free frame time time: 43ms.
-receive packet time time: 43ms.
-push_success use time: 44ms.
-receive packet time time: 44ms.
-Whole func use time: 45ms.
-per frame time: 59ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 4ms.
-send frame time time: 25ms.
-free frame time time: 53ms.
-receive packet time time: 61ms.
-push_success use time: 62ms.
-receive packet time time: 62ms.
-Whole func use time: 63ms.
-per frame time: 71ms.
-init encode and packet time: 0ms.
-Whole func use time: 4ms.
-init encode and packet time: 0ms.
-set_pts time: 4ms.
-send frame time time: 26ms.
-free frame time time: 27ms.
-receive packet time time: 27ms.
-push_success use time: 29ms.
-receive packet time time: 29ms.
-Whole func use time: 29ms.
-per frame time: 32ms.
-init encode and packet time: 0ms.
-Whole func use time: 4ms.
-init encode and packet time: 0ms.
-Whole func use time: 4ms.
-init encode and packet time: 0ms.
-set_pts time: 1ms.
-send frame time time: 19ms.
-free frame time time: 21ms.
-receive packet time time: 21ms.
-push_success use time: 21ms.
-receive packet time time: 24ms.
-Whole func use time: 32ms.
-per frame time: 40ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 69ms.
-free frame time time: 69ms.
-receive packet time time: 69ms.
-push_success use time: 70ms.
-receive packet time time: 70ms.
-Whole func use time: 70ms.
-per frame time: 71ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 31ms.
-free frame time time: 37ms.
-receive packet time time: 37ms.
-push_success use time: 38ms.
-receive packet time time: 45ms.
-Whole func use time: 45ms.
-per frame time: 47ms.
-init encode and packet time: 0ms.
-Whole func use time: 13ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 160ms.
-free frame time time: 162ms.
-receive packet time time: 162ms.
-push_success use time: 162ms.
-receive packet time time: 162ms.
-Whole func use time: 162ms.
-per frame time: 164ms.
-init encode and packet time: 0ms.
-Whole func use time: 8ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 11ms.
-free frame time time: 15ms.
-receive packet time time: 16ms.
-push_success use time: 16ms.
-receive packet time time: 17ms.
-Whole func use time: 17ms.
-per frame time: 21ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 61ms.
-free frame time time: 63ms.
-receive packet time time: 63ms.
-push_success use time: 63ms.
-receive packet time time: 63ms.
-Whole func use time: 63ms.
-per frame time: 64ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 1ms.
-send frame time time: 26ms.
-free frame time time: 36ms.
-receive packet time time: 48ms.
-push_success use time: 48ms.
-receive packet time time: 48ms.
-Whole func use time: 48ms.
-per frame time: 51ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 10ms.
-receive packet time time: 10ms.
-push_success use time: 12ms.
-receive packet time time: 12ms.
-Whole func use time: 13ms.
-per frame time: 17ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 54ms.
-free frame time time: 54ms.
-receive packet time time: 54ms.
-push_success use time: 55ms.
-receive packet time time: 55ms.
-Whole func use time: 56ms.
-per frame time: 59ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 264ms.
-free frame time time: 264ms.
-receive packet time time: 264ms.
-push_success use time: 264ms.
-receive packet time time: 264ms.
-Whole func use time: 264ms.
-per frame time: 266ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 12ms.
-free frame time time: 13ms.
-receive packet time time: 23ms.
-push_success use time: 24ms.
-receive packet time time: 24ms.
-Whole func use time: 24ms.
-per frame time: 25ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 2ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 10ms.
-receive packet time time: 10ms.
-push_success use time: 10ms.
-receive packet time time: 10ms.
-Whole func use time: 10ms.
-per frame time: 11ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 21ms.
-free frame time time: 37ms.
-receive packet time time: 42ms.
-push_success use time: 42ms.
-receive packet time time: 42ms.
-Whole func use time: 43ms.
-per frame time: 45ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 108ms.
-free frame time time: 109ms.
-receive packet time time: 109ms.
-push_success use time: 109ms.
-receive packet time time: 109ms.
-Whole func use time: 109ms.
-per frame time: 111ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 2ms.
-send frame time time: 12ms.
-free frame time time: 12ms.
-receive packet time time: 12ms.
-push_success use time: 12ms.
-receive packet time time: 12ms.
-Whole func use time: 12ms.
-per frame time: 14ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 29ms.
-free frame time time: 29ms.
-receive packet time time: 29ms.
-push_success use time: 29ms.
-receive packet time time: 29ms.
-Whole func use time: 29ms.
-per frame time: 31ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 3ms.
-send frame time time: 49ms.
-free frame time time: 49ms.
-receive packet time time: 49ms.
-push_success use time: 50ms.
-receive packet time time: 50ms.
-Whole func use time: 50ms.
-per frame time: 53ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 1ms.
-send frame time time: 9ms.
-free frame time time: 12ms.
-receive packet time time: 33ms.
-push_success use time: 40ms.
-receive packet time time: 44ms.
-Whole func use time: 44ms.
-per frame time: 48ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-Whole func use time: 1ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 9ms.
-free frame time time: 26ms.
-receive packet time time: 42ms.
-push_success use time: 43ms.
-receive packet time time: 44ms.
-Whole func use time: 46ms.
-per frame time: 48ms.
-init encode and packet time: 0ms.
 Whole func use time: 3ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 13ms.
-free frame time time: 14ms.
-receive packet time time: 15ms.
-push_success use time: 15ms.
-receive packet time time: 16ms.
-Whole func use time: 17ms.
-per frame time: 19ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
+Whole func use time: 4ms.
+Whole func use time: 5ms.
+Whole func use time: 6ms.
+Whole func use time: 6ms.
+Whole func use time: 5ms.
+Whole func use time: 6ms.
+Whole func use time: 6ms.
+Whole func use time: 6ms.
+Whole func use time: 21ms.
 Whole func use time: 7ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 17ms.
-free frame time time: 18ms.
-receive packet time time: 18ms.
-push_success use time: 18ms.
-receive packet time time: 18ms.
-Whole func use time: 18ms.
-per frame time: 20ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 0ms.
-send frame time time: 29ms.
-free frame time time: 31ms.
-receive packet time time: 31ms.
-push_success use time: 31ms.
-receive packet time time: 31ms.
-Whole func use time: 31ms.
-per frame time: 33ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 6ms.
-send frame time time: 15ms.
-free frame time time: 54ms.
-receive packet time time: 66ms.
-push_success use time: 66ms.
-receive packet time time: 66ms.
-Whole func use time: 67ms.
-per frame time: 69ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 2ms.
-send frame time time: 12ms.
-free frame time time: 12ms.
-receive packet time time: 12ms.
-push_success use time: 12ms.
-receive packet time time: 12ms.
-Whole func use time: 12ms.
-per frame time: 16ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 3ms.
-send frame time time: 21ms.
-free frame time time: 62ms.
-receive packet time time: 73ms.
-push_success use time: 74ms.
-receive packet time time: 74ms.
-Whole func use time: 81ms.
-per frame time: 89ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-Whole func use time: 0ms.
-init encode and packet time: 0ms.
-set_pts time: 2ms.
-send frame time time: 15ms.
-free frame time time: 21ms.
-receive packet time time: 22ms.
+Whole func use time: 8ms.
+push_success use time: 11ms.
+Whole func use time: 21ms.
+push_success use time: 107ms.
+Whole func use time: 120ms.
+sleep time: 22ms.
+push_success use time: 37ms.
+Whole func use time: 37ms.
+sleep time: 24ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 23ms.
+push_success use time: 49ms.
+Whole func use time: 55ms.
+sleep time: 10ms.
+push_success use time: 43ms.
+Whole func use time: 47ms.
+sleep time: 2ms.
+push_success use time: 25ms.
+Whole func use time: 26ms.
+sleep time: 14ms.
+push_success use time: 69ms.
+Whole func use time: 69ms.
+sleep time: 20ms.
+push_success use time: 36ms.
+Whole func use time: 36ms.
+sleep time: 21ms.
+push_success use time: 38ms.
+Whole func use time: 38ms.
+sleep time: 24ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 24ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 15ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 22ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 22ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 23ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 16ms.
+push_success use time: 34ms.
+Whole func use time: 34ms.
+sleep time: 19ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 20ms.
+push_success use time: 39ms.
+Whole func use time: 39ms.
+sleep time: 25ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 25ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 24ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 24ms.
+push_success use time: 41ms.
+Whole func use time: 42ms.
+sleep time: 20ms.
+push_success use time: 38ms.
+Whole func use time: 38ms.
+sleep time: 25ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 27ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 25ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 24ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 22ms.
+push_success use time: 37ms.
+Whole func use time: 37ms.
+sleep time: 27ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 43ms.
+sleep time: 25ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 24ms.
+push_success use time: 39ms.
+Whole func use time: 39ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 24ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 26ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 25ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 25ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 22ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 27ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 44ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 26ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 25ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 25ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 23ms.
+push_success use time: 39ms.
+Whole func use time: 39ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 26ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 26ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 26ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 20ms.
+push_success use time: 36ms.
+Whole func use time: 36ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 27ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 25ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 26ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 23ms.
+push_success use time: 40ms.
+Whole func use time: 40ms.
+sleep time: 26ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 25ms.
+push_success use time: 41ms.
+Whole func use time: 41ms.
+sleep time: 27ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 28ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 27ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 25ms.
+push_success use time: 43ms.
+Whole func use time: 43ms.
+sleep time: 15ms.
+push_success use time: 32ms.
+Whole func use time: 32ms.
+sleep time: 25ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 27ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 27ms.
+push_success use time: 45ms.
+Whole func use time: 45ms.
+sleep time: 28ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+sleep time: 27ms.
+push_success use time: 44ms.
+Whole func use time: 45ms.
+sleep time: 20ms.
+push_success use time: 37ms.
+Whole func use time: 37ms.
+sleep time: 25ms.
+push_success use time: 42ms.
+Whole func use time: 42ms.
+sleep time: 27ms.
+push_success use time: 44ms.
+Whole func use time: 44ms.
+.

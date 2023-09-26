@@ -29,6 +29,13 @@ public:
 
     int encode(AVFrame *frame, int stream_index, double& count);
 
+    int encode_new(AVFrame *frame, int stream_index, double& count, int64_t& last_time);
+
+
+
+
+
+
 
     int test_encode(AVFrame* frame, int stream_index, double& count, int64_t & time, int& first, int& resend);
 

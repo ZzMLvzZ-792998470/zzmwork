@@ -125,12 +125,12 @@ int Encoder::init_encoder(AVFormatContext *ofmt_ctx) {
 
 
 int Encoder::encode(AVFrame *frame, int stream_index, double& count) {
-    int64_t timeEncode = Timer::getCurrentTime();
+    //int64_t timeEncode = Timer::getCurrentTime();
     int ret;
     AVFrame *encode_frame = frame;
     AVPacket *enc_pkt = av_packet_alloc();
 
-    av_log(nullptr, AV_LOG_INFO, "init encode and packet time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+  //  av_log(nullptr, AV_LOG_INFO, "init encode and packet time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
 
     if(stream_index == 0){
         //设置编码数据帧的pts --->{1, 25} 表示 一个时间单位一帧 正确
@@ -138,7 +138,7 @@ int Encoder::encode(AVFrame *frame, int stream_index, double& count) {
         video_pts++;
         //count++;
 
-        av_log(nullptr, AV_LOG_INFO, "set_pts time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+       // av_log(nullptr, AV_LOG_INFO, "set_pts time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
 
         ret = avcodec_send_frame(video_enc_ctx, encode_frame);  //耗时最长
         if(ret < 0){
@@ -146,15 +146,15 @@ int Encoder::encode(AVFrame *frame, int stream_index, double& count) {
             return ret;
         }
 
-        av_log(nullptr, AV_LOG_INFO, "send frame time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+      //  av_log(nullptr, AV_LOG_INFO, "send frame time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
 
         av_frame_free(&frame);
 
-        av_log(nullptr, AV_LOG_INFO, "free frame time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+       // av_log(nullptr, AV_LOG_INFO, "free frame time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
         //av_log(nullptr, AV_LOG_INFO, "read_frame use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
         while (ret >= 0) {
             ret = avcodec_receive_packet(video_enc_ctx, enc_pkt);
-            av_log(nullptr, AV_LOG_INFO, "receive packet time time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+           // av_log(nullptr, AV_LOG_INFO, "receive packet time time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
             if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF){
 //                av_log(nullptr, AV_LOG_INFO, "Whole func() use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
 //                return 0;
@@ -168,16 +168,15 @@ int Encoder::encode(AVFrame *frame, int stream_index, double& count) {
             current_time_video += time_per_frame_video;
             count += time_per_frame_video;
 
-//            av_log(nullptr, AV_LOG_INFO, "pts: #%d ", enc_pkt->pts);
-//            av_log(nullptr, AV_LOG_INFO, " dts: #%d ", enc_pkt->dts);
-//            av_log(nullptr, AV_LOG_INFO, "video packet.\n");
+            av_log(nullptr, AV_LOG_INFO, "pts: #%d ", enc_pkt->pts);
+            av_log(nullptr, AV_LOG_INFO, " dts: #%d ", enc_pkt->dts);
+            av_log(nullptr, AV_LOG_INFO, "video packet.\n");
 
             enc_pkt->pts = enc_pkt->dts = (enc_pkt->pts * m_ofmt_ctx->streams[stream_index]->time_base.den / 1000);
             //Writer::write_packets(m_ofmt_ctx, enc_pkt);
             av_interleaved_write_frame(m_ofmt_ctx, enc_pkt);
-            av_log(nullptr, AV_LOG_INFO, "push_success use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
-//            av_usleep(10000);
-            //usleep((int)(time_per_frame_video * 1000));
+          //  av_log(nullptr, AV_LOG_INFO, "push_success use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+          //  av_usleep((Timer::getCurrentTime() - timeEncode) >= (1000 / framerate * 1000) ? 0 : (1000 / framerate * 1000) - (Timer::getCurrentTime() - timeEncode));
         }
 
     }else{
@@ -222,9 +221,109 @@ int Encoder::encode(AVFrame *frame, int stream_index, double& count) {
         }
     }
     av_packet_free(&enc_pkt);
-    av_log(nullptr, AV_LOG_INFO, "Whole func use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+    //av_log(nullptr, AV_LOG_INFO, "Whole func use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
     return 0;
 }
+
+int Encoder::encode_new(AVFrame *frame, int stream_index, double &count, int64_t &last_time) {
+    int64_t timeEncode = Timer::getCurrentTime();
+    int ret;
+    AVFrame *encode_frame = frame;
+    AVPacket *enc_pkt = av_packet_alloc();
+
+    if(stream_index == 0) {
+        //设置编码数据帧的pts --->{1, 25} 表示 一个时间单位一帧 正确
+        if (encode_frame) encode_frame->pts = video_pts;
+        video_pts++;
+
+        ret = avcodec_send_frame(video_enc_ctx, encode_frame);  //耗时最长
+        if (ret < 0) {
+            av_log(nullptr, AV_LOG_ERROR, "video_frame: avcodec_send_frame failed.\n");
+            return ret;
+        }
+
+        av_frame_free(&frame);
+
+        while (ret >= 0) {
+            ret = avcodec_receive_packet(video_enc_ctx, enc_pkt);
+            if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+                break;
+            }
+
+            enc_pkt->stream_index = stream_index;
+
+            //33.333ms.... --->一帧要多少毫秒
+            enc_pkt->dts = enc_pkt->pts = current_time_video;
+            current_time_video += time_per_frame_video;
+            count += time_per_frame_video;
+
+//            av_log(nullptr, AV_LOG_INFO, "pts: #%d ", enc_pkt->pts);
+//            av_log(nullptr, AV_LOG_INFO, " dts: #%d ", enc_pkt->dts);
+//            av_log(nullptr, AV_LOG_INFO, "video packet.\n");
+
+            enc_pkt->pts = enc_pkt->dts = (enc_pkt->pts * m_ofmt_ctx->streams[stream_index]->time_base.den / 1000);
+            int64_t sep = 0;
+            //Writer::write_packets(m_ofmt_ctx, enc_pkt);
+
+            av_interleaved_write_frame(m_ofmt_ctx, enc_pkt);
+
+
+            av_log(nullptr, AV_LOG_INFO, "push_success use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+            if(last_time != -1) {
+                int64_t sleep_time = (1000 / framerate * 1000 + 10000 - 12500 - (Timer::getCurrentTime() - last_time));
+                if(sleep_time > 0){
+                    av_usleep(sleep_time);
+                }
+            }
+            last_time = Timer::getCurrentTime();
+        }
+
+    }else{
+        //设置编码数据帧的pts --->{1, 44100} 表示 一个时间单位一帧 正确
+        if(encode_frame) encode_frame->pts = audio_pts;
+        audio_pts += 1024;
+        //count+=1024;
+
+        ret = avcodec_send_frame(audio_enc_ctx, encode_frame);
+        if(ret < 0){
+            av_log(nullptr, AV_LOG_ERROR, "audio_frame: avcodec_send_frame failed.\n");
+            return ret;
+        }
+
+        av_frame_free(&encode_frame);
+
+        while (ret >= 0) {
+            ret = avcodec_receive_packet(audio_enc_ctx, enc_pkt);
+            if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF){
+                //return 0;
+                break;
+            }
+
+            enc_pkt->stream_index = stream_index;
+
+            //23.219ms.... --->一帧要多少毫秒
+            enc_pkt->dts = enc_pkt->pts = current_time_audio;
+            current_time_audio += time_per_frame_audio;
+            count += time_per_frame_audio;
+
+//            av_log(nullptr, AV_LOG_INFO, "pts: #%d ", enc_pkt->pts);
+//            av_log(nullptr, AV_LOG_INFO, " dts: #%d ", enc_pkt->dts);
+//            av_log(nullptr, AV_LOG_INFO, "audio packet.\n");
+
+            enc_pkt->pts = enc_pkt->dts = (enc_pkt->pts * m_ofmt_ctx->streams[stream_index]->time_base.den / 1000);
+
+            //Writer::write_packets(m_ofmt_ctx, enc_pkt);
+            av_interleaved_write_frame(m_ofmt_ctx, enc_pkt);
+
+
+        }
+    }
+    av_packet_free(&enc_pkt);
+    if(stream_index == 0) av_log(nullptr, AV_LOG_INFO, "Whole func use time: %dms.\n", (Timer::getCurrentTime() - timeEncode) / 1000);
+    //if(stream_index == 0) last_time = Timer::getCurrentTime();
+    return 0;
+}
+
 
 
 
