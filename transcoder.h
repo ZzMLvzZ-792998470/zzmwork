@@ -7,6 +7,7 @@
 #include "writer.h"
 #include "frame_create.h"
 #include "utils.h"
+#include "timer.h"
 
 #include <thread>
 #include <mutex>
@@ -34,16 +35,9 @@ public:
 
     int test_encode_as_mp4(int& work);
     int test_encode_as_rtmp(int& work);
-    int test_encode_as_rtmp2(int& work);
 
+    int test_encode_rtmp4(int& work);
 
-//
-//
-//    int init_ifmt();
-//    int init_ofmt();
-//
-//    int init_decoder();
-//    int init_encoder();
 
 private:
     int width;

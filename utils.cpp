@@ -4,7 +4,7 @@
 
 
 
-AVFrame* merge_way(int& backround_height, int& backround_width, std::vector<AVFrame *>& frames){
+AVFrame* Utils::merge_way(int& backround_height, int& backround_width, std::vector<AVFrame *>& frames){
     unsigned int i;
     std::vector<int> heights(frames.size());
     std::vector<int> widths(frames.size());
@@ -46,7 +46,7 @@ AVFrame* merge_way(int& backround_height, int& backround_width, std::vector<AVFr
 
 
 //改变数据帧大小
-AVFrame* change_frame_size(int new_height, int new_width, AVFrame *src_frame){
+AVFrame*  Utils::change_frame_size(int new_width, int new_height, AVFrame *src_frame){
     int ret;
     int src_width = src_frame->width;
     int src_height = src_frame->height;
@@ -92,7 +92,7 @@ AVFrame* change_frame_size(int new_height, int new_width, AVFrame *src_frame){
 
 
 //avframe转换为Mat
-cv::Mat avframe2Mat(int& height, int& width, AVFrame *frame){
+cv::Mat  Utils::avframe2Mat(int& height, int& width, AVFrame *frame){
     int size = height * width;
     cv::Mat img = cv::Mat::zeros(height * 3 / 2, width, CV_8UC1);
     memcpy(img.data,  frame->data[0], size);
@@ -104,7 +104,7 @@ cv::Mat avframe2Mat(int& height, int& width, AVFrame *frame){
 }
 
 //Mat转换为avframe
-AVFrame* Mat2avframe(int& cols, int& rows, cv::Mat img){
+AVFrame*  Utils::Mat2avframe(int& cols, int& rows, cv::Mat img){
     AVFrame *dst_frame = av_frame_alloc();
     dst_frame->height = rows;
     dst_frame->width = cols;
@@ -122,7 +122,7 @@ AVFrame* Mat2avframe(int& cols, int& rows, cv::Mat img){
 }
 
 //叠加图片
-void add_pic2pic(cv::Mat& src_mat, cv::Mat& added_mat,
+void  Utils::add_pic2pic(cv::Mat& src_mat, cv::Mat& added_mat,
                  int col_point, int row_point,
                  double alpha, double beta, double gamma){
     //1. 拿到两个图片的数据

@@ -16,24 +16,13 @@ extern "C" {
 
 class Writer{
 public:
-    typedef std::shared_ptr<Writer> ptr;
-    Writer(AVFormatContext *ofmt_ctx);
-    ~Writer();
+    static int write_header(AVFormatContext* ofmt_ctx);
 
+    static int write_packets(AVFormatContext* ofmt_ctx, AVPacket *enc_pkt);
 
-    int write_header();
-
-    int write_packets(AVPacket *enc_pkt);
-
-    int write_tail();
-
-
-//    int init_ofmt();
-
+    static int write_tail(AVFormatContext* ofmt_ctx);
 
 private:
-//    std::string filename;
-    AVFormatContext *ofmt_ctx;
 
 };
 

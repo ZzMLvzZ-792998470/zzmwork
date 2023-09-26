@@ -6,10 +6,12 @@ extern "C"{
 #include <libavformat/avformat.h>
 #include <libavutil/channel_layout.h>
 #include <libavutil/opt.h>
+#include <libavutil/time.h>
 }
 
 
 #include "writer.h"
+#include "timer.h"
 #include <string>
 #include <memory>
 
@@ -28,9 +30,13 @@ public:
     int encode(AVFrame *frame, int stream_index, double& count);
 
 
+    int test_encode(AVFrame* frame, int stream_index, double& count, int64_t & time, int& first, int& resend);
+
+
+
 
 private:
-    Writer::ptr writer;
+   // Writer::ptr writer;
     AVFormatContext *m_ofmt_ctx;
 
     int height = 1080;

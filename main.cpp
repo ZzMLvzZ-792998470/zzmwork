@@ -23,8 +23,9 @@ int main() {
 
 
     int ret;
-    //std::string file0 = "C://Users//ZZM//Desktop//素材//test.mp4";
-    std::string file0 = "C://Users//ZZM//Desktop//素材//网上的素材//当年陈刀仔.mp4";
+   // std::string file0 = "C://Users//ZZM//Desktop//素材//test.mp4";
+    std::string file0 = "C://Users//ZZM//Desktop//素材//网上的素材//抖肩舞.mp4";
+    //std::string file0 = "C://Users//ZZM//Desktop//素材//网上的素材//当年陈刀仔.mp4";
 
 
     std::string output_file0 = "rtmp://localhost:1935/live/livestream";

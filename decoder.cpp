@@ -232,12 +232,12 @@ int Decoder::decode_low2high() {
                     av_frame_unref(dec_frame);
                     count += frameratio;
                 }else{
-                    {
-                        std::unique_lock<std::mutex> lock(mtx);
-                        while(audio_queue.size() >= 10){
-                            cond.wait(lock);
-                        }
-                    }
+//                    {
+//                        std::unique_lock<std::mutex> lock(mtx);
+//                        while(audio_queue.size() >= 10){
+//                            cond.wait(lock);
+//                        }
+//                    }
                     {
                         std::lock_guard<std::mutex> lock(mtx);
                         audio_queue.push_back(av_frame_clone(dec_frame));
@@ -248,12 +248,12 @@ int Decoder::decode_low2high() {
             av_frame_free(&dec_frame);
         } else {
             count -= 1.0f;
-            {
-                std::unique_lock<std::mutex> lock(mtx);
-                while(video_queue.size() >= 10){
-                    cond.wait(lock);
-                }
-            }
+//            {
+//                std::unique_lock<std::mutex> lock(mtx);
+//                while(video_queue.size() >= 50){
+//                    cond.wait(lock);
+//                }
+//            }
             {
                 std::lock_guard<std::mutex> lock(mtx);
                 video_queue.push_back(av_frame_clone(prev_frame));

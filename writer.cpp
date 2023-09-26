@@ -1,18 +1,18 @@
 #include "writer.h"
 
+//
+//Writer::Writer(AVFormatContext *ofmt_ctx) : ofmt_ctx(ofmt_ctx) {
+//
+//
+//}
+//
+//
+//Writer::~Writer() {
+//
+//
+//}
 
-Writer::Writer(AVFormatContext *ofmt_ctx) : ofmt_ctx(ofmt_ctx) {
-
-
-}
-
-
-Writer::~Writer() {
-
-
-}
-
-int Writer::write_header() {
+int Writer::write_header(AVFormatContext* ofmt_ctx) {
     int ret = avformat_write_header(ofmt_ctx, nullptr);
     if(ret < 0){
         av_log(nullptr, AV_LOG_ERROR, "Error occurred when begining(write_header) output file\n");
@@ -23,7 +23,7 @@ int Writer::write_header() {
 }
 
 
-int Writer::write_packets(AVPacket *enc_pkt) {
+int Writer::write_packets(AVFormatContext* ofmt_ctx, AVPacket *enc_pkt) {
     int ret = av_interleaved_write_frame(ofmt_ctx, enc_pkt);
     if(ret < 0){
         av_log(nullptr, AV_LOG_ERROR, "Error occurred when during(write_frame) output file\n");
@@ -34,7 +34,7 @@ int Writer::write_packets(AVPacket *enc_pkt) {
 }
 
 
-int Writer::write_tail() {
+int Writer::write_tail(AVFormatContext* ofmt_ctx) {
     int ret = av_write_trailer(ofmt_ctx);
     if(ret != 0){
         if(ret < 0){

@@ -57,7 +57,6 @@ void Transcoder::threadwork(int i, int& work){
 
 
 int Transcoder::test_encode_as_mp4(int& work){
-    //int work = 1;
     double count_video = 0.0;
     double count_audio = 0.0;
     bool all_finish;
@@ -78,7 +77,7 @@ int Transcoder::test_encode_as_mp4(int& work){
         {
             std::lock_guard<std::mutex> lock(mtx);
             if(!decoders[0]->get_video_queue().empty()){
-                int ret = encoders[0]->encode(change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video);
+                int ret = encoders[0]->encode(Utils::change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video);
                 if(ret < 0) return -1;
                 decoders[0]->pop_video();
             }
@@ -133,7 +132,7 @@ int Transcoder::test_encode_as_rtmp(int &work) {
                 {
                     std::lock_guard<std::mutex> lock(mtx);
                     encoders[0]->encode(
-                            change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())),
+                            Utils::change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())),
                             0, count_video);
                     decoders[0]->pop_video();
                 }
@@ -156,7 +155,7 @@ int Transcoder::test_encode_as_rtmp(int &work) {
             if (!decoders[0]->get_video_queue().empty()) {
                 {
                     std::lock_guard<std::mutex> lock(mtx);
-                    encoders[0]->encode(change_frame_size(1080, 1920, av_frame_clone(
+                    encoders[0]->encode(Utils::change_frame_size(1080, 1920, av_frame_clone(
                             decoders[0]->get_video_queue().front())), 0, count_video);
                     decoders[0]->pop_video();
                 }
@@ -180,86 +179,70 @@ int Transcoder::test_encode_as_rtmp(int &work) {
 }
 
 
-int Transcoder::test_encode_as_rtmp2(int &work) {
-    double count_video = 0.0;
+int Transcoder::test_encode_rtmp4(int &work) {
+    //以音频pts为基准
     double count_audio = 0.0;
+    double count_video = 0.0;
+
+    AVFrame *last_frame = FrameCreater::create_video_frame();
+    AVFrame *silence_frame = FrameCreater::create_audio_frame();
     bool all_finish;
 
-
-    FrameCreater::ptr c(new FrameCreater());
-    AVFrame *temp = c->create_video_frame();
-
-    AVFrame* last_frame = temp;
-
+    double count_ratio = (44100 * 1.0 / 1024 - framerate) / framerate;
+    double count = 0.0;
 
     while(true){
-        all_finish = work == 0 && decoders[0]->get_video_queue().empty() && decoders[0]->get_audio_queue().empty();
+        all_finish = (work == 0) && decoders[0]->get_audio_queue().empty() && decoders[0]->get_video_queue().empty();
         if(all_finish) break;
 
+        //理论上一帧的播放时长 视频1 / 30 * 1000-----》33.333ms    音频播放时长 1024 / 44100 * 1000-----》23.219ms
+        //一秒内要编码 视频 30帧   音频 44100 / 1024---》43帧
 
-        //如果包都有的话-----》
-        if(count_audio <= count_video){
-            if(!decoders[0]->get_audio_queue().empty()){
+        if(count >= 1){
+            count -= 1.0;
+            if (!decoders[0]->get_audio_queue().empty()) {
+                encoders[0]->encode(av_frame_clone(decoders[0]->get_audio_queue().front()), 1, count_audio);
                 {
                     std::lock_guard<std::mutex> lock(mtx);
-                    encoders[0]->encode(av_frame_clone(decoders[0]->get_audio_queue().front()), 1, count_audio);
                     decoders[0]->pop_audio();
                 }
             }
-        } else{
-            if(!decoders[0]->get_video_queue().empty()){
-                {
-                    std::lock_guard<std::mutex> lock(mtx);
-                    encoders[0]->encode(
-                            change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())),
-                            0, count_video);
-
-                    av_frame_free(&last_frame);
-                    last_frame = av_frame_clone(decoders[0]->get_video_queue().front());
-                    decoders[0]->pop_video();
-                }
-            } else{
-                encoders[0]->encode(change_frame_size(1080, 1920, av_frame_clone(last_frame)), 0, count_video);
+        }
+        if (!decoders[0]->get_video_queue().empty()) {
+            encoders[0]->encode(Utils::change_frame_size(1920, 1080, av_frame_clone(decoders[0]->get_video_queue().front())), 0, count_video);
+            av_frame_free(&last_frame);
+            last_frame = av_frame_clone(decoders[0]->get_video_queue().front());
+            {
+                std::lock_guard<std::mutex> lock(mtx);
+                decoders[0]->pop_video();
             }
-        }
-
-        {
-            std::unique_lock<std::mutex> lock(mtx);
-            cond.notify_all();
-        }
-
-        if(work == 0 && (decoders[0]->get_audio_queue().empty() || decoders[0]->get_video_queue().empty())){
-            while(!decoders[0]->get_audio_queue().empty()){
-                {
-                    std::lock_guard<std::mutex> lock(mtx);
-                    encoders[0]->encode(av_frame_clone(decoders[0]->get_audio_queue().front()), 1, count_audio);
-                    decoders[0]->pop_audio();
-                }
+            {
+                std::unique_lock<std::mutex> lock(mtx);
+                cond.notify_all();
             }
 
+        } else {
+            encoders[0]->encode(Utils::change_frame_size(width, height, av_frame_clone(last_frame)), 0, count_video);
+        }
 
-            while(!decoders[0]->get_video_queue().empty()){
-                {
-                    std::lock_guard<std::mutex> lock(mtx);
-                    encoders[0]->encode(
-                            change_frame_size(1080, 1920, av_frame_clone(decoders[0]->get_video_queue().front())),
-                            0, count_video);
-                    decoders[0]->pop_video();
-                }
+        if (!decoders[0]->get_audio_queue().empty()) {
+            encoders[0]->encode(av_frame_clone(decoders[0]->get_audio_queue().front()), 1, count_audio);
+            {
+                std::lock_guard<std::mutex> lock(mtx);
+                decoders[0]->pop_audio();
             }
         }
+        count += count_ratio;
+
     }
-
-
-
-
-    encoders[0]->encode(nullptr, 0, count_video);
-    encoders[0]->encode(nullptr, 1, count_audio);
-
-
-
-
+//    //av_usleep(80000);
+//    encoders[0]->encode(nullptr, 0, count_video);
+//    //av_usleep(80000);
+//    encoders[0]->encode(nullptr, 0, count_audio);
+    av_usleep(7000000);
+    return 0;
 }
+
 
 
 
@@ -267,17 +250,23 @@ int Transcoder::reencode() {
     int work = 1;
     unsigned int i;
 
-    Writer::ptr w1(new Writer(IniterOs[0]->get_fmt_ctx()));
+//    Writer::ptr w1(new Writer(IniterOs[0]->get_fmt_ctx()));
+//
+//    w1->write_header();
 
-    w1->write_header();
+    Writer::write_header(IniterOs[0]->get_fmt_ctx());
     for(i = 0; i < inputNums; i++){
         threadwork(i, work);
     }
 
     //test_encode_as_mp4(work);
-    test_encode_as_rtmp2(work);
+    //test_encode_as_rtmp2(work);
 
-    w1->write_tail();
+    //test_encode_as_rtmp3(work);
+
+    test_encode_rtmp4(work);
+
+    Writer::write_tail(IniterOs[0]->get_fmt_ctx());
 
     return 0;
 }

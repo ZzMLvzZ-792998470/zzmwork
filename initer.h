@@ -49,7 +49,6 @@ private:
 
 
 
-
 class IniterO : Initer{
 public:
     typedef std::shared_ptr<IniterO> ptr;
@@ -70,6 +69,5 @@ private:
     AVFormatContext *ofmt_ctx = nullptr;
 
 };
-
 
 #endif

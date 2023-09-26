@@ -24,9 +24,9 @@ public:
     ~FrameCreater();
 
 
-    AVFrame *create_video_frame(int height = 1080, int width = 1920, int format = AV_PIX_FMT_YUV420P, int y = 0, int u = 128, int v = 128);
+    static AVFrame *create_video_frame(int height = 1080, int width = 1920, int format = AV_PIX_FMT_YUV420P, int y = 0, int u = 128, int v = 128);
 
-    AVFrame *create_audio_frame( int sample_rate = 44100,
+    static AVFrame *create_audio_frame( int sample_rate = 44100,
                                  int channels = 2,
                                  AVSampleFormat format = AV_SAMPLE_FMT_FLTP,
                                  int nb_samples = 1024,
