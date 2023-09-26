@@ -31,8 +31,9 @@ public:
 
     int encode_new(AVFrame *frame, int stream_index, double& count, int64_t& last_time);
 
+    int encode_video(AVFrame* frame, int64_t& last_time);
 
-
+    int encode_audio(AVFrame* frame);
 
 
 

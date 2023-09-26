@@ -32,7 +32,6 @@ AVFormatContext* IniterI::get_fmt_ctx() {
 
 
 IniterI::~IniterI(){
-    //close ifmt_ctx
     avformat_close_input(&ifmt_ctx);
 }
 
@@ -43,7 +42,7 @@ IniterO::IniterO(const std::string &filename) : filename(filename) {
 }
 
 IniterO::~IniterO(){
-    //close ofmt
+    avformat_free_context(ofmt_ctx);
 }
 
 

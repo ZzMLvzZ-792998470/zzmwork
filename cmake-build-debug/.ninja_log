@@ -72,3 +72,10 @@
 2	36	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
 4	457	7174213766072979	CMakeFiles/ffmpeg_work.dir/encoder.cpp.obj	ea367b1111a6d8fd
 457	1076	7174213772155500	ffmpeg_work.exe	199979094f1efa7a
+3	42	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+13	1371	7174228422537580	CMakeFiles/ffmpeg_work.dir/encoder.cpp.obj	ea367b1111a6d8fd
+5	2680	7174228436358085	CMakeFiles/ffmpeg_work.dir/main.cpp.obj	b6062f650dd0afd9
+3	33	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+3	1506	7174228923002406	CMakeFiles/ffmpeg_work.dir/transcoder.cpp.obj	2cddecf052df2065
+1506	1914	7174228927011851	ffmpeg_work.exe	199979094f1efa7a
+2	46	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd

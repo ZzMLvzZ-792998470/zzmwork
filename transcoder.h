@@ -24,17 +24,12 @@ public:
                int framerate = 30);
     ~Transcoder();
 
-//    int init();
-//
-//    int start();
-//
-
     void threadwork(int i, int& work);
 
     int reencode();
 
-    int test_encode_as_mp4(int& work);
-    int test_encode_as_rtmp(int& work);
+    int encode_as_mp4(int& work);
+    int encode_as_rtmp(int& work);
 
     int test_encode_rtmp4(int& work);
 
@@ -53,7 +48,6 @@ private:
 
     std::vector<Decoder::ptr> decoders;
     std::vector<Encoder::ptr> encoders;
-
 
 };
 

@@ -13,7 +13,17 @@ Decoder::Decoder(int set_framerate, AVFormatContext *ifmt_ctx) : ifmt_ctx(ifmt_c
 
 
 Decoder::~Decoder() {
+    avcodec_free_context(&audio_dec_ctx);
+    avcodec_free_context(&video_dec_ctx);
 
+    ifmt_ctx = nullptr;
+    while(!audio_queue.empty()){
+        pop_audio();
+    }
+
+    while(!video_queue.empty()){
+        pop_video();
+    }
 }
 
 int Decoder::init_decoder() {
