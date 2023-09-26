@@ -51,15 +51,13 @@ int Decoder::init_decoder() {
             return ret;
         }
 
-        //new 非必须
-        //codec_ctx->pkt_timebase = stream->time_base;
         /* Reencode video & audio and remux subtitles etc. */
         if (codec_ctx->codec_type == AVMEDIA_TYPE_VIDEO || codec_ctx->codec_type == AVMEDIA_TYPE_AUDIO) {
             if (codec_ctx->codec_type == AVMEDIA_TYPE_VIDEO) {
                 codec_ctx->framerate = av_guess_frame_rate(ifmt_ctx, stream, nullptr);
                 codec_ctx->bit_rate = ifmt_ctx->bit_rate; //new
             }
-            /* Open decoder */ //********************************************* why 1, 48?
+
             ret = avcodec_open2(codec_ctx, dec, nullptr);
             if (ret < 0) {
                 av_log(nullptr, AV_LOG_ERROR, "Failed to open decoder for stream #%u\n", i);
@@ -69,7 +67,6 @@ int Decoder::init_decoder() {
 
         if(i == 0){
             video_dec_ctx = codec_ctx;
-            //video_dec_ctx->time_base = AVRational{1, 24};
             real_framerate = video_dec_ctx->framerate.num;
         }
         else audio_dec_ctx = codec_ctx;
@@ -103,12 +100,17 @@ int Decoder::decode(int& work) {
 }
 
 
+void Decoder::set_video_queue_cache(int &cache_size) {
+    video_queue_cache = cache_size;
+}
+
+
+
 int Decoder::decode_high2low() {
     int ret;
     AVPacket *packet = av_packet_alloc();
     while(true) {
         if ((ret = av_read_frame(ifmt_ctx, packet)) < 0) return 0;
-
         int stream_index = packet->stream_index;
 
         if(stream_index == 0) ret = avcodec_send_packet(video_dec_ctx, packet);
@@ -118,9 +120,7 @@ int Decoder::decode_high2low() {
             break;
         }
 
-
         av_packet_unref(packet);
-
         AVFrame *dec_frame = av_frame_alloc();
         while (ret >= 0) {
             if(stream_index == 0) ret = avcodec_receive_frame(video_dec_ctx, dec_frame);
@@ -134,19 +134,15 @@ int Decoder::decode_high2low() {
             dec_frame->pict_type = AV_PICTURE_TYPE_NONE;
             //如果是视频帧 需要判断丢帧
             if(stream_index == 0){
-                if(count >= 1.0f){
-                    count -= 1.0f;
-                    //continue;
-                }else{
+                if(count >= 1.0f) count -= 1.0f;
+                else{
                     count += frameratio;
-
                     {
                         std::unique_lock<std::mutex> lock(mtx);
-                        while(video_queue.size() >= 5){
+                        while(video_queue.size() >= video_queue_cache){
                             cond.wait(lock);
                         }
                     }
-
 
                     {
                         std::lock_guard<std::mutex> lock(mtx);
@@ -154,28 +150,22 @@ int Decoder::decode_high2low() {
                     }
                 }
             } else{
-
-
-                {
-                    std::unique_lock<std::mutex> lock(mtx);
-                    while(audio_queue.size() >= 5){
-                        cond.wait(lock);
-                    }
-                }
-
+//                {
+//                    std::unique_lock<std::mutex> lock(mtx);
+//                    while(audio_queue.size() >= 5){
+//                        cond.wait(lock);
+//                    }
+//                }
                 {
                     std::lock_guard<std::mutex> lock(mtx);
                     audio_queue.push_back(av_frame_clone(dec_frame));
                 }
-
-
             }
             av_frame_unref(dec_frame);
         }
         av_frame_free(&dec_frame);
     }
     av_packet_free(&packet);
-
     return 0;
 }
 
@@ -185,34 +175,24 @@ int Decoder::decode_low2high() {
     int ret;
     while(true) {
         if (count < 1.0f) {
-            if ((ret = av_read_frame(ifmt_ctx, packet)) < 0) {
-                return 0;
-            }
+            if ((ret = av_read_frame(ifmt_ctx, packet)) < 0) return 0;
+
 
             int stream_index = packet->stream_index;
-
-            if(stream_index == 0){
-                ret = avcodec_send_packet(video_dec_ctx, packet);
-                if (ret < 0) {
-                    av_log(nullptr, AV_LOG_ERROR, "Decoding failed.\n");
-                    break;
-                }
-            }else{
-                ret = avcodec_send_packet(audio_dec_ctx, packet);
-                if (ret < 0) {
-                    av_log(nullptr, AV_LOG_ERROR, "Decoding failed.\n");
-                    break;
-                }
+            if(stream_index == 0) ret = avcodec_send_packet(video_dec_ctx, packet);
+            else ret = avcodec_send_packet(audio_dec_ctx, packet);
+            if (ret < 0) {
+                av_log(nullptr, AV_LOG_ERROR, "Decoding failed.\n");
+                break;
             }
+
 
             av_packet_unref(packet);
             AVFrame *dec_frame = av_frame_alloc();
             while (ret >= 0) {
-                if(stream_index == 0){
-                    ret = avcodec_receive_frame(video_dec_ctx, dec_frame);
-                }else{
-                    ret = avcodec_receive_frame(audio_dec_ctx, dec_frame);
-                }
+                if(stream_index == 0) ret = avcodec_receive_frame(video_dec_ctx, dec_frame);
+                else ret = avcodec_receive_frame(audio_dec_ctx, dec_frame);
+
                 if (ret == AVERROR_EOF || ret == AVERROR(EAGAIN)) break;
                 else if (ret < 0) return ret;
 
@@ -223,10 +203,9 @@ int Decoder::decode_low2high() {
                     //写数据加锁
                     {
                         std::unique_lock<std::mutex> lock(mtx);
-                        while(video_queue.size() >= 10){
+                        while(video_queue.size() >= video_queue_cache){
                             cond.wait(lock);
                         }
-
                     }
 
                     {
@@ -234,10 +213,7 @@ int Decoder::decode_low2high() {
                         video_queue.push_back(av_frame_clone(dec_frame));
 
                         //内存泄漏存疑点
-                        if(count + frameratio >= 1.0f){
-                            prev_frame = av_frame_clone(dec_frame);
-
-                        }
+                        if(count + frameratio >= 1.0f) prev_frame = av_frame_clone(dec_frame);
                     }
                     av_frame_unref(dec_frame);
                     count += frameratio;
@@ -252,18 +228,17 @@ int Decoder::decode_low2high() {
                         std::lock_guard<std::mutex> lock(mtx);
                         audio_queue.push_back(av_frame_clone(dec_frame));
                     }
-//                    continue;
                 }
             }
             av_frame_free(&dec_frame);
         } else {
             count -= 1.0f;
-//            {
-//                std::unique_lock<std::mutex> lock(mtx);
-//                while(video_queue.size() >= 50){
-//                    cond.wait(lock);
-//                }
-//            }
+            {
+                std::unique_lock<std::mutex> lock(mtx);
+                while(video_queue.size() >= video_queue_cache){
+                    cond.wait(lock);
+                }
+            }
             {
                 std::lock_guard<std::mutex> lock(mtx);
                 video_queue.push_back(av_frame_clone(prev_frame));
@@ -272,4 +247,5 @@ int Decoder::decode_low2high() {
         }
     }
     av_packet_free(&packet);
+    return 0;
 }

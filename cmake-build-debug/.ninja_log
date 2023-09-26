@@ -79,3 +79,13 @@
 3	1506	7174228923002406	CMakeFiles/ffmpeg_work.dir/transcoder.cpp.obj	2cddecf052df2065
 1506	1914	7174228927011851	ffmpeg_work.exe	199979094f1efa7a
 2	46	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+3	37	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+31	1201	7174246259893102	CMakeFiles/ffmpeg_work.dir/initer.cpp.obj	1ddf59631b732f83
+21	1211	7174246259942971	CMakeFiles/ffmpeg_work.dir/encoder.cpp.obj	ea367b1111a6d8fd
+13	1726	7174246265223750	CMakeFiles/ffmpeg_work.dir/decoder.cpp.obj	1af160f4b0b30521
+5	2477	7174246272730819	CMakeFiles/ffmpeg_work.dir/main.cpp.obj	b6062f650dd0afd9
+42	2804	7174246275973922	CMakeFiles/ffmpeg_work.dir/transcoder.cpp.obj	2cddecf052df2065
+2804	3372	7174246281620321	ffmpeg_work.exe	199979094f1efa7a
+6	65	0	F:/Study/Clion_work/ffmpeg_work/cmake-build-debug/CMakeFiles/cmake.verify_globs	310f94ff0392dcdd
+6	1911	7174249736197239	CMakeFiles/ffmpeg_work.dir/decoder.cpp.obj	1af160f4b0b30521
+1912	2612	7174249742912791	ffmpeg_work.exe	199979094f1efa7a

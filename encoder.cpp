@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 Encoder::Encoder(int height, int width, int framerate) : height(height), width(width), framerate(framerate){
-    //Writer::ptr writer(new Writer());
+
 }
 
 
@@ -33,15 +33,7 @@ int Encoder::init_encoder(AVFormatContext *ofmt_ctx) {
             return AVERROR_INVALIDDATA;
         }
 
-//        if(i == 0){
-//            video_enc_ctx = avcodec_alloc_context3(encoder);
-//            enc_ctx = video_enc_ctx;
-//        }else if(i == 1){
-//            audio_enc_ctx = avcodec_alloc_context3(encoder);
-//            enc_ctx = audio_enc_ctx;
-//        }
         enc_ctx = avcodec_alloc_context3(encoder);
-
         if (!enc_ctx) {
             av_log(nullptr, AV_LOG_FATAL, "Failed to allocate the encoder context\n");
             return AVERROR(ENOMEM);
